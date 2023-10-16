@@ -33,6 +33,7 @@ int _printf(const char *format, ...)
 					break;
 				case '%':
 					count += printf("%%");
+					break;
 				default:
 					break;
 			}
