@@ -8,16 +8,13 @@
  */
 int _printf(const char *format, ...)
 {
-	int i;
-	int count = 0;
+	int i, count = 0;
 	va_list args;
 
 	if (format == NULL)
 		return (-1);
-
 	va_start(args, format);
 	i = 0;
-
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -33,6 +30,12 @@ int _printf(const char *format, ...)
 					break;
 				case '%':
 					count += printf("%%");
+					break;
+				case 'd':
+					count += printf("%d", va_arg(args, int));
+					break;
+				case 'i':
+					count += printf("%i", va_arg(args, int));
 					break;
 				default:
 					break;
